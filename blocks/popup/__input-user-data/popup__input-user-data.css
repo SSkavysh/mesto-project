@@ -1,0 +1,9 @@
+.popup__input-user-data {
+  margin: 0;
+  padding: 0 0 13px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: inherit;
+}

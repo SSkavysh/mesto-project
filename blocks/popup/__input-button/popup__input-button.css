@@ -1,0 +1,22 @@
+.popup__input-button {
+  border-radius: 2px;
+  width: 358px;
+  height: 50px;
+  background-color: black;
+  font-family: inherit;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s linear;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__input-button {
+    width: 238px;
+    height: 46px;
+  }
+}
+
+.popup__input-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,27 @@
+.profile__button-link {
+  display: flex;
+  margin: 0 0 9px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  align-self: flex-end;
+  background-color: black;
+  border: 1px solid white;
+  box-sizing: border-box;
+  transition: opacity 0.5s linear;
+}
+
+@media screen and (max-width: 950px) {
+  .profile__button-link {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    bottom: 28px;
+    right: -28px;
+  }
+}
+
+.profile__button-link:hover {
+  opacity: 0.6;
+}

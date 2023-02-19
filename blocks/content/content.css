@@ -1,0 +1,8 @@
+.content {
+  max-width: calc((100% - 320px)/960 * 598 + 282px);
+  display: flex;
+  flex-direction: column;
+  row-gap: calc((100% - 320px)/960 * 14 + 36px);
+  align-items: center;
+}
+

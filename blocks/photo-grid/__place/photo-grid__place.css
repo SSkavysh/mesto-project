@@ -1,0 +1,17 @@
+.photo-grid__place {
+  max-width: 32%;
+}
+
+@media screen and (max-width: 810px) {
+  .photo-grid__place {
+    max-width: 46%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .photo-grid__place {
+    max-width: 282px;
+  }
+}
+
+

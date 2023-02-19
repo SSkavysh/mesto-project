@@ -1,0 +1,10 @@
+.photo-grid__like {
+  width: 22px;
+  height: 19px;
+  background-image: url('../../../images/active-heart.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 1px;
+  left: 0px;
+}
