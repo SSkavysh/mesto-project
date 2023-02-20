@@ -11,9 +11,14 @@
 
 @media screen and (max-width: 950px) {
   .profile__preference {
-    font-weight: 400;
     font-size: 14px;
     line-height: 14px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile__preference {
+    max-width: 244px;
   }
 }

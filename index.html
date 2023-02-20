@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Сергей Скавыш">
-    <meta name="description" content="Место - это новая социальная сеть, позволяющая выкладывать фото своих путешествий по России">
-    <meta name="keywords" content="социальная сеть Место, Карачаевск, Домбай, гора Эльбрус, Карачаево-Черкессия">
-    <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Сергей Скавыш">
+  <meta name="description" content="Место - это новая социальная сеть, позволяющая выкладывать фото своих путешествий по России">
+  <meta name="keywords" content="социальная сеть Место, Карачаевск, Домбай, гора Эльбрус, Карачаево-Черкессия">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
   <div class="page">
@@ -21,71 +21,69 @@
           <img src="./images/Avatar.png" alt="Фото Жак-Ива Кусто" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <a href="#" class="profile__button-link">
-              <img src="./images/stick.png" alt="Кнопка редактирования профиля" class="profile__button-image">
-            </a>
-            <h2 class="profile__preference">Исследователь океана</h2>
+            <button type="button" name="Profile-edition-button" class="profile__button">
+              <img src="./images/stick.svg" alt="Кнопка редактирования профиля" class="profile__button-image">
+            </button>
+            <p class="profile__preference">Исследователь океана</p>
           </div>
         </div>
-        <a href="#" class="profile__pictures-button">
-          <img src="./images/Cross.png" alt="Белый крестик" class="profile__pictures-button-image">
-        </a>
+        <button type="button" name="button-for-uploading-photo" class="profile__button-for-uploading-photo"></button>
       </section>
       <section class="photo-grid">
         <div class="photo-grid__place">
           <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Карачаевск</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Карачаевск</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
         <div class="photo-grid__place">
           <img src="./images/Elbrus-mountain.png" alt="Гора Эльбрус" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Гора Эльбрус</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Гора Эльбрус</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
         <div class="photo-grid__place">
           <img src="./images/Dombai.png" alt="Домбай" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Домбай</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Домбай</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
         <div class="photo-grid__place">
           <img src="./images/Elbrus-mountain.png" alt="Гора Эльбрус" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Гора Эльбрус</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Гора Эльбрус</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
         <div class="photo-grid__place">
           <img src="./images/Dombai.png" alt="Домбай" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Домбай</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Домбай</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
         <div class="photo-grid__place">
           <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="photo-grid__picture">
           <div class="photo-grid__heading">
-            <h2 class="photo-grid__heading-text">Карачаево-Черкессия</h2>
-            <a href="#" class="photo-grid__like photo-grid__like_disabled"></a>
+            <h3 class="photo-grid__heading-text">Карачаево-Черкессия</h3>
+            <button type="button" class="photo-grid__like" name="like-button"></button>
           </div>
         </div>
       </section>
-      <section class="popup popup_opened">
-        <form class="popup__container">
-          <h2 class="popup__heading">Редактировать профиль</h2>
+      <section class="popup">
+        <form class="popup__container" name="form-for-user-data-edition">
+          <h4 class="popup__heading">Редактировать профиль</h4>
           <fieldset class="popup__user-info">
-            <input type="text" name="username" value="Жак-Ив Кусто" class="popup__input-user-data">
-            <input type="text" name="preference" value="Исследователь океана" class="popup__input-user-data">
+            <input type="text" name="user-name" placeholder="Жак-Ив Кусто" class="popup__input-user-data">
+            <input type="text" name="user-preference" placeholder="Исследователь океана" class="popup__input-user-data">
           </fieldset>
           <fieldset class="popup__button">
-            <input type="button" name="saving-user-data" value="Сохранить" class="popup__input-button">
+            <button type="submit" name="button-for-saving-user-data" class="popup__input-button">Сохранить</button>
           </fieldset>
-          <a href="#"><img src="./images/Close-Icon.png" alt="Крестик для закрытия попапа" class="popup__cloce-icon"></a>
+          <button type="button" class="popup__close-icon" name="button-for-closing-profile-edition-form"></button>
         </form>
       </section>
     </main>
@@ -93,4 +91,3 @@
   </div>
 </body>
 </html>
-

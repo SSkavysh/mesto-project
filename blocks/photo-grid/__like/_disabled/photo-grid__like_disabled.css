@@ -1,8 +1,0 @@
-.photo-grid__like_disabled {
-  background-image: url('../../../../images/disabled-heart.svg');
-  transition: opacity 0.5s linear;
-}
-
-.photo-grid__like_disabled:hover {
-  opacity: 0.5;
-}

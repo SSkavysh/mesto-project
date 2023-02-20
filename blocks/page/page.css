@@ -8,12 +8,35 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1041px) {
   .page {
-    padding-top: calc((100% - 320px)/960 * 17 + 28px);
-    padding-bottom: calc((100% - 320px)/960 * 24 + 36px);
+    padding-top: 41px;
+    padding-bottom: 54px;
   }
 }
+
+@media screen and (max-width: 785px) {
+  .page {
+    padding-top: 37px;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .page {
+    padding-top: 32px;
+    padding-bottom: 42px;
+  }
+}
+
+@media screen and (max-width: 442px) {
+  .page {
+    padding-top: 28px;
+    padding-bottom: 36px;
+  }
+}
+
+
 
 
 

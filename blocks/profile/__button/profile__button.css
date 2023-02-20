@@ -1,4 +1,4 @@
-.profile__button-link {
+.profile__button {
   display: flex;
   margin: 0 0 9px;
   padding: 0;
@@ -9,10 +9,11 @@
   border: 1px solid white;
   box-sizing: border-box;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
-  .profile__button-link {
+  .profile__button {
     margin: 0;
     width: 18px;
     height: 18px;
@@ -22,6 +23,6 @@
   }
 }
 
-.profile__button-link:hover {
+.profile__button:hover {
   opacity: 0.6;
 }

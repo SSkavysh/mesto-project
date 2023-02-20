@@ -9,6 +9,5 @@
   .profile {
     flex-direction: column;
     row-gap: 36px;
-    align-items: center;
   }
 }

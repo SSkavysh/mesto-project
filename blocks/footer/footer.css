@@ -1,21 +1,36 @@
 .footer {
-  max-width: calc((100% - 320px)/960 * 598 + 282px);
+  width: 70.3%;
+  max-width: 880px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   color: #545454;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1041px) {
   .footer {
-    font-size: calc((100vw - 320px)/960 * 4 + 14px);
-    line-height: calc((100vw - 320px)/960 * 5 + 17px);
+    width: 73%;
+    font-size: 17px;
+    line-height: 21px;
   }
 }
 
-@media screen and (max-width: 337px) {
+@media screen and (max-width: 785px) {
   .footer {
+    width: 77.3%;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .footer {
+    width: 282px;
     font-size: 14px;
     line-height: 17px;
   }
 }
+
+
+
+
