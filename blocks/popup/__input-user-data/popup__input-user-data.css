@@ -15,30 +15,10 @@
   outline: none;
 }
 
-.popup__input-user-data::-webkit-input-placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+.popup__input-user-data::-webkit-input-placeholder, .popup__input-user-data::-moz-placeholder, .popup__input-user-data::-ms-input-placeholder, .popup__input-user-data::placeholder {
   color: black;
 }
 
-.popup__input-user-data::-moz-placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: black;
-}
 
-.popup__input-user-data::-ms-input-placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: black;
-}
 
-.popup__input-user-data::placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: black;
-}
+

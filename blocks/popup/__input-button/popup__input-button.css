@@ -1,5 +1,6 @@
 .popup__input-button {
   border-radius: 2px;
+  border: 0;
   width: 358px;
   height: 50px;
   background-color: black;

@@ -1,4 +1,4 @@
-.profile__button-for-uploading-photo {
+.profile__upload-button {
   margin: 0;
   padding: 0;
   width: 150px;
@@ -16,14 +16,14 @@
 }
 
 @media screen and (max-width: 950px) {
-  .profile__button-for-uploading-photo {
+  .profile__upload-button {
     width: 282px;
     height: 50px;
     background-size: 16px 16px;
   }
 }
 
-.profile__button-for-uploading-photo:hover {
+.profile__upload-button:hover {
   opacity: 0.6;
 }
 
