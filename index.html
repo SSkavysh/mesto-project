@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Сергей Скавыш">
   <meta name="description" content="Место - это новая социальная сеть, позволяющая выкладывать фото своих путешествий по России">
-  <meta name="keywords" content="социальная сеть Место, Карачаевск, Домбай, гора Эльбрус, Карачаево-Черкессия">
+  <meta name="keywords" content="социальная сеть Место, Архыз, Челябинская область, Иваново, Камчатка, Холмогорский район, Байкал">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
@@ -30,64 +30,54 @@
         <button type="button" name="button-for-uploading-photo" class="profile__upload-button"></button>
       </section>
       <section class="photo-grid">
-        <div class="photo-grid__place">
-          <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Карачаевск</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
-        <div class="photo-grid__place">
-          <img src="./images/Elbrus-mountain.png" alt="Гора Эльбрус" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Гора Эльбрус</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
-        <div class="photo-grid__place">
-          <img src="./images/Dombai.png" alt="Домбай" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Домбай</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
-        <div class="photo-grid__place">
-          <img src="./images/Elbrus-mountain.png" alt="Гора Эльбрус" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Гора Эльбрус</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
-        <div class="photo-grid__place">
-          <img src="./images/Dombai.png" alt="Домбай" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Домбай</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
-        <div class="photo-grid__place">
-          <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="photo-grid__picture">
-          <div class="photo-grid__heading">
-            <h3 class="photo-grid__heading-text">Карачаево-Черкессия</h3>
-            <button type="button" class="photo-grid__like" name="like-button"></button>
-          </div>
-        </div>
       </section>
-      <section class="popup">
-        <form class="popup__container" name="form-for-user-data-edition">
+      <section class="popup" id="profilePopup">
+        <form class="popup__container" name="form-for-user-data-edition" id="profilePopupContainer">
           <h4 class="popup__heading">Редактировать профиль</h4>
-          <fieldset class="popup__user-info">
-            <input type="text" name="user-name" placeholder="Жак-Ив Кусто" class="popup__input-user-data">
-            <input type="text" name="user-preference" placeholder="Исследователь океана" class="popup__input-user-data">
+          <fieldset class="popup__info">
+            <input id="userName" type="text" name="user-name" placeholder="Имя" value="Жак-Ив Кусто" class="popup__input-data" required>
+            <input id="preference" type="text" name="user-preference" placeholder="Информация о себе" value="Исследователь океана" class="popup__input-data" required>
           </fieldset>
           <fieldset class="popup__button">
-            <button type="submit" name="button-for-saving-user-data" class="popup__input-button">Сохранить</button>
+            <button type="submit" name="button-for-saving-user-data" class="popup__input-button" id="inputSaveButton">Сохранить</button>
           </fieldset>
-          <button type="button" class="popup__close-button" name="button-for-closing-profile-edition-form"></button>
+          <button type="button" class="popup__close-button" name="button-for-closing-profile-edition-form" id="profilePopupCloseButton"></button>
+        </form>
+      </section>
+      <section class="popup" id="itemPopup">
+        <form class="popup__container" name="form-for-item-data-edition" id="itemPopupContainer">
+          <h4 class="popup__heading">Новое место</h4>
+          <fieldset class="popup__info">
+            <input id="itemName" type="text" name="item-name" placeholder="Название" class="popup__input-data" required>
+            <input id="itemLink" type="text" name="item-link" placeholder="Ссылка на картинку" class="popup__input-data" required>
+          </fieldset>
+          <fieldset class="popup__button">
+            <button type="submit" name="button-for-saving-item-data" class="popup__input-button">Создать</button>
+          </fieldset>
+          <button type="button" class="popup__close-button" name="button-for-closing-item-edition-form" id="itemPopupCloseButton"></button>
         </form>
       </section>
     </main>
     <footer class="footer page__footer">&copy; 2023 Mesto Russia</footer>
   </div>
+  <template id="photoGridTemplate">
+    <div class="photo-grid__place">
+      <div class="photo-grid__picture">
+        <button type="button" class="photo-grid__trash" name="trash-button"></button>
+      </div>
+      <div class="photo-grid__heading">
+        <h3 class="photo-grid__heading-text"></h3>
+        <button type="button" class="photo-grid__like" name="like-button"></button>
+      </div>
+      <div class="photo-popup">
+        <div class="photo-popup__container">
+          <img class="photo-popup__picture">
+          <h4 class="photo-popup__heading"></h4>
+          <button type="button" class="popup__close-button" name="button-for-closing-photo" id="photoPopupCloseButton"></button>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script src="./script.js"></script>
 </body>
 </html>

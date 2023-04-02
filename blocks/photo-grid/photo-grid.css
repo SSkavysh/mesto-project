@@ -1,10 +1,9 @@
 .photo-grid {
-  max-width: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 2%;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 810px) {

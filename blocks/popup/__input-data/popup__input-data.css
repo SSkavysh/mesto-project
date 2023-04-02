@@ -1,4 +1,4 @@
-.popup__input-user-data {
+.popup__input-data {
   margin: 0;
   padding: 0 0 9px;
   width: 100%;
@@ -11,11 +11,11 @@
   line-height: 17px;
 }
 
-.popup__input-user-data:focus {
+.popup__input-data:focus {
   outline: none;
 }
 
-.popup__input-user-data::-webkit-input-placeholder, .popup__input-user-data::-moz-placeholder, .popup__input-user-data::-ms-input-placeholder, .popup__input-user-data::placeholder {
+.popup__input-data::-webkit-input-placeholder, .popup__input-data::-moz-placeholder, .popup__input-data::-ms-input-placeholder, .popup__input-data::placeholder {
   color: black;
 }
 
