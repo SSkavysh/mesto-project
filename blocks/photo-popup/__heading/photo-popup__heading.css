@@ -5,7 +5,7 @@
   font-size: 12px;
   line-height: 15px;
   position: absolute;
-  bottom: -22px;
+  top: calc(100% + 10px);
   left: 0px;
 }
 

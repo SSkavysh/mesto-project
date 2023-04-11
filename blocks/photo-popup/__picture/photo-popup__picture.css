@@ -1,6 +1,8 @@
 .photo-popup__picture {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   max-height: 75vh;
+  height: auto;
   object-fit: cover;
   object-position: center;
 }

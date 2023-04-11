@@ -16,7 +16,10 @@ const itemName = document.querySelector('#itemName');
 const itemLink = document.querySelector('#itemLink');
 const photoGrid = document.querySelector('.photo-grid');
 const photoPopup = document.querySelector('.photo-popup');
+const photoPopupPicture = document.querySelector('.photo-popup__picture');
+const photoPopupHeading = document.querySelector('.photo-popup__heading');
 const photoPopupCloseButton = document.querySelector('#photoPopupCloseButton');
+const photoGridTemplate = document.querySelector('#photoGridTemplate').content;
 const initialCards = [
   {
     name: 'Архыз',
@@ -45,11 +48,11 @@ const initialCards = [
   ];
 
 function openPopup(popup) {
-  popup.classList.toggle ('popup_opened');
+  popup.classList.add ('popup_opened');
 };
 
 function closePopup(popup) {
-  popup.classList.toggle ('popup_opened');
+  popup.classList.remove ('popup_opened');
 };
 
 function handleProfileForm(evt) {
@@ -57,19 +60,9 @@ function handleProfileForm(evt) {
   profileName.textContent = inputUserName.value;
   profilePreference.textContent = inputPreference.value;
   closePopup(profilePopup);
-  if (profileName.textContent == 'Имя') {
-    inputUserName.value = '';
-  } else {inputUserName.value = profileName.textContent;
-  };
-  if (profilePreference.textContent == 'Информация о себе') {
-    inputPreference.value = '';
-  } else {inputPreference.value = profilePreference.textContent;
 };
-};
-
 
 const createCard = (name, link) => {
-  const photoGridTemplate = document.querySelector('#photoGridTemplate').content;
   const photoGridPlace = photoGridTemplate.querySelector('.photo-grid__place').cloneNode(true);
   photoGridPlace.querySelector('.photo-grid__picture').style.backgroundImage = `url(${link})`;
   photoGridPlace.querySelector('.photo-grid__heading-text').textContent = name;
@@ -78,11 +71,11 @@ const createCard = (name, link) => {
   });
   photoGridPlace.querySelector('.photo-grid__picture').addEventListener('click', function(){
     openPopup(photoPopup);
-    document.querySelector('.photo-popup__picture').src = `${link}`;
-    document.querySelector('.photo-popup__heading').textContent = name;
+    photoPopupPicture.src = `${link}`;
+    photoPopupPicture.alt = `${name}`;
+    photoPopupHeading.textContent = name;
   });
   photoGridPlace.querySelector('.photo-grid__trash').addEventListener('click', function(){
-    closePopup(photoPopup);
     photoGridPlace.remove();
   });
   return photoGridPlace;
@@ -108,26 +101,20 @@ for (let i = 0; i < initialCards.length; i++) {
 profilePopupOpenButton.addEventListener('click', function() {
   openPopup(profilePopup);
   inputUserName.focus();
+  inputUserName.value = profileName.textContent;
+  inputPreference.value = profilePreference.textContent;
 });
 profilePopupCloseButton.addEventListener('click', function() {
   closePopup(profilePopup);
-    if (profileName.textContent == 'Имя') {
-      inputUserName.value = '';
-    } else {inputUserName.value = profileName.textContent;
-    };
-    if (profilePreference.textContent == 'Информация о себе') {
-      inputPreference.value = '';
-    } else {inputPreference.value = profilePreference.textContent;
-  };
 });
 itemPopupOpenButton.addEventListener('click', function() {
   openPopup(itemPopup);
   itemName.focus();
+  itemName.value = '';
+  itemLink.value = '';
 });
 itemPopupCloseButton.addEventListener('click', function() {
   closePopup(itemPopup);
-  itemName.value = '';
-  itemLink.value = '';
 });
 photoPopupCloseButton.addEventListener('click', function() {
   closePopup(photoPopup);
