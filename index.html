@@ -20,11 +20,11 @@
         <div class="profile__content">
           <img src="./images/Avatar.png" alt="Фото Жак-Ива Кусто" class="profile__avatar">
           <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <h1 class="profile__name">Имя</h1>
             <button type="button" name="Profile-edition-button" class="profile__button">
               <img src="./images/stick.svg" alt="Кнопка редактирования профиля" class="profile__button-image">
             </button>
-            <p class="profile__preference">Исследователь океана</p>
+            <p class="profile__preference">Информация о себе</p>
           </div>
         </div>
         <button type="button" name="button-for-uploading-photo" class="profile__upload-button"></button>
@@ -32,12 +32,12 @@
       <section class="photo-grid">
       </section>
       <section class="popup" id="profilePopup">
-        <form class="popup__container" name="form-for-user-data-edition" id="profilePopupContainer">
+        <form class="popup__container" name="form-for-user-data-edition" id="profileFormContainer">
           <h4 class="popup__heading">Редактировать профиль</h4>
-          <fieldset class="popup__info">
-            <input id="userName" type="text" name="user-name" placeholder="Имя" value="Жак-Ив Кусто" class="popup__input-data" required>
-            <input id="preference" type="text" name="user-preference" placeholder="Информация о себе" value="Исследователь океана" class="popup__input-data" required>
-          </fieldset>
+          <div class="popup__info">
+            <input id="userName" type="text" name="user-name" placeholder="Имя" class="popup__input-data" required>
+            <input id="preference" type="text" name="user-preference" placeholder="Информация о себе" class="popup__input-data" required>
+          </div>
           <fieldset class="popup__button">
             <button type="submit" name="button-for-saving-user-data" class="popup__input-button" id="inputSaveButton">Сохранить</button>
           </fieldset>
@@ -45,17 +45,24 @@
         </form>
       </section>
       <section class="popup" id="itemPopup">
-        <form class="popup__container" name="form-for-item-data-edition" id="itemPopupContainer">
+        <form class="popup__container" name="form-for-item-data-edition" id="itemFormContainer">
           <h4 class="popup__heading">Новое место</h4>
-          <fieldset class="popup__info">
+          <div class="popup__info">
             <input id="itemName" type="text" name="item-name" placeholder="Название" class="popup__input-data" required>
             <input id="itemLink" type="text" name="item-link" placeholder="Ссылка на картинку" class="popup__input-data" required>
-          </fieldset>
+          </div>
           <fieldset class="popup__button">
             <button type="submit" name="button-for-saving-item-data" class="popup__input-button">Создать</button>
           </fieldset>
           <button type="button" class="popup__close-button" name="button-for-closing-item-edition-form" id="itemPopupCloseButton"></button>
         </form>
+      </section>
+      <section class="popup photo-popup">
+        <div class="photo-popup__container">
+          <img class="photo-popup__picture">
+          <h4 class="photo-popup__heading"></h4>
+          <button type="button" class="popup__close-button" name="button-for-closing-photo" id="photoPopupCloseButton"></button>
+        </div>
       </section>
     </main>
     <footer class="footer page__footer">&copy; 2023 Mesto Russia</footer>
@@ -68,13 +75,6 @@
       <div class="photo-grid__heading">
         <h3 class="photo-grid__heading-text"></h3>
         <button type="button" class="photo-grid__like" name="like-button"></button>
-      </div>
-      <div class="photo-popup">
-        <div class="photo-popup__container">
-          <img class="photo-popup__picture">
-          <h4 class="photo-popup__heading"></h4>
-          <button type="button" class="popup__close-button" name="button-for-closing-photo" id="photoPopupCloseButton"></button>
-        </div>
       </div>
     </div>
   </template>

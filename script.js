@@ -4,18 +4,19 @@ const profilePopupCloseButton = document.querySelector('#profilePopupCloseButton
 const itemPopup = document.querySelector('#itemPopup');
 const itemPopupOpenButton = document.querySelector('.profile__upload-button');
 const itemPopupCloseButton = document.querySelector('#itemPopupCloseButton');
-const profilePopupContainer = document.querySelector('#profilePopupContainer');
+const profileFormContainer = document.querySelector('#profileFormContainer');
 const inputUserName = document.querySelector('#userName');
 const inputPreference = document.querySelector('#preference');
 const inputSaveButton = document.querySelector('#inputSaveButton');
 const profileName = document.querySelector('.profile__name');
 const profilePreference = document.querySelector('.profile__preference');
 const likeButton = document.querySelector('.photo-grid__like');
-
-const itemPopupContainer = document.querySelector('#itemPopupContainer');
+const itemFormContainer = document.querySelector('#itemFormContainer');
 const itemName = document.querySelector('#itemName');
 const itemLink = document.querySelector('#itemLink');
 const photoGrid = document.querySelector('.photo-grid');
+const photoPopup = document.querySelector('.photo-popup');
+const photoPopupCloseButton = document.querySelector('#photoPopupCloseButton');
 const initialCards = [
   {
     name: 'Архыз',
@@ -43,79 +44,96 @@ const initialCards = [
   }
   ];
 
-function openProfilePopup() {
-  profilePopup.classList.add ('popup_opened');
-  profilePopup.setAttribute('style', 'transition: opacity 0.5s linear');
-  inputUserName.focus();
+function openPopup(popup) {
+  popup.classList.toggle ('popup_opened');
 };
 
-function closeProfilePopup() {
-  profilePopup.setAttribute('style', 'transition: opacity 0.5s linear, z-index 0.8s');
-  profilePopup.classList.remove ('popup_opened');
-  inputUserName.value = profileName.textContent;
-  inputPreference.value = profilePreference.textContent;
+function closePopup(popup) {
+  popup.classList.toggle ('popup_opened');
 };
 
-function openItemPopup() {
-  itemPopup.classList.add ('popup_opened');
-  itemPopup.setAttribute('style', 'transition: opacity 0.5s linear');
-  itemName.focus();
-};
-
-function closeItemPopup() {
-  itemPopup.setAttribute('style', 'transition: opacity 0.5s linear, z-index 0.8s');
-  itemPopup.classList.remove ('popup_opened');
-  itemName.value = '';
-  itemLink.value = '';
-};
-
-function profileFormSubmitHandler(evt) {
+function handleProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = inputUserName.value;
   profilePreference.textContent = inputPreference.value;
-  closeProfilePopup();
+  closePopup(profilePopup);
+  if (profileName.textContent == 'Имя') {
+    inputUserName.value = '';
+  } else {inputUserName.value = profileName.textContent;
+  };
+  if (profilePreference.textContent == 'Информация о себе') {
+    inputPreference.value = '';
+  } else {inputPreference.value = profilePreference.textContent;
+};
 };
 
-function addItem(name, link) {
+
+const createCard = (name, link) => {
   const photoGridTemplate = document.querySelector('#photoGridTemplate').content;
   const photoGridPlace = photoGridTemplate.querySelector('.photo-grid__place').cloneNode(true);
   photoGridPlace.querySelector('.photo-grid__picture').style.backgroundImage = `url(${link})`;
   photoGridPlace.querySelector('.photo-grid__heading-text').textContent = name;
-  photoGridPlace.querySelector('.photo-popup__picture').src = `${link}`;
-  photoGridPlace.querySelector('.photo-popup__heading').textContent = name;
   photoGridPlace.querySelector('.photo-grid__like').addEventListener('click', function(evt){
     evt.target.classList.toggle('photo-grid__like_active');
   });
   photoGridPlace.querySelector('.photo-grid__picture').addEventListener('click', function(){
-    photoGridPlace.querySelector('.photo-popup').classList.toggle('photo-popup_opened');
-    photoGridPlace.querySelector('.photo-popup').setAttribute('style', 'transition: opacity 0.5s linear');
-  });
-  photoGridPlace.querySelector('#photoPopupCloseButton').addEventListener('click', function(){
-    photoGridPlace.querySelector('.photo-popup').setAttribute('style', 'transition: opacity 0.5s linear, z-index 0.8s');
-    photoGridPlace.querySelector('.photo-popup').classList.toggle('photo-popup_opened');
+    openPopup(photoPopup);
+    document.querySelector('.photo-popup__picture').src = `${link}`;
+    document.querySelector('.photo-popup__heading').textContent = name;
   });
   photoGridPlace.querySelector('.photo-grid__trash').addEventListener('click', function(){
+    closePopup(photoPopup);
     photoGridPlace.remove();
   });
-  photoGrid.prepend(photoGridPlace);
+  return photoGridPlace;
 }
 
-function itemFormSubmitHandler(evt) {
+function renderCard(name, link) {
+  photoGrid.prepend(createCard(name, link));
+}
+
+function handleItemForm(evt) {
   evt.preventDefault();
-  addItem(itemName.value, itemLink.value);
-  closeItemPopup();
-};
-initialCards.reverse();
-for (let i = 0; i < initialCards.length; i++) {
-  addItem(initialCards[i].name, initialCards[i].link);
+  renderCard(itemName.value, itemLink.value);
+  closePopup(itemPopup);
+  itemName.value = '';
+  itemLink.value = '';
 };
 
-profilePopupOpenButton.addEventListener('click', openProfilePopup);
-profilePopupCloseButton.addEventListener('click', closeProfilePopup);
-itemPopupOpenButton.addEventListener('click', openItemPopup);
-itemPopupCloseButton.addEventListener('click', closeItemPopup);
-profilePopupContainer.addEventListener('submit', profileFormSubmitHandler);
-itemPopupContainer.addEventListener('submit', itemFormSubmitHandler);
+initialCards.reverse();
+for (let i = 0; i < initialCards.length; i++) {
+  renderCard(initialCards[i].name, initialCards[i].link);
+};
+
+profilePopupOpenButton.addEventListener('click', function() {
+  openPopup(profilePopup);
+  inputUserName.focus();
+});
+profilePopupCloseButton.addEventListener('click', function() {
+  closePopup(profilePopup);
+    if (profileName.textContent == 'Имя') {
+      inputUserName.value = '';
+    } else {inputUserName.value = profileName.textContent;
+    };
+    if (profilePreference.textContent == 'Информация о себе') {
+      inputPreference.value = '';
+    } else {inputPreference.value = profilePreference.textContent;
+  };
+});
+itemPopupOpenButton.addEventListener('click', function() {
+  openPopup(itemPopup);
+  itemName.focus();
+});
+itemPopupCloseButton.addEventListener('click', function() {
+  closePopup(itemPopup);
+  itemName.value = '';
+  itemLink.value = '';
+});
+photoPopupCloseButton.addEventListener('click', function() {
+  closePopup(photoPopup);
+});
+profileFormContainer.addEventListener('submit', handleProfileForm);
+itemFormContainer.addEventListener('submit', handleItemForm);
 
 
 
